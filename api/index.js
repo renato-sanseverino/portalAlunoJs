@@ -1,4 +1,3 @@
-const mysql = require('mysql2');
 const express = require('express');
 const { nextApi, nextRouter } = require('express-next-api');
 
@@ -13,18 +12,3 @@ app.use(nextApi({ base: '/api/routes', directory: 'routes', options: {caseSensit
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
-
-/*
-
-app.get('/professores', (req, res) => {
-    const query = "SELECT * FROM professor";
-
-    mysqlConnection.query(query, (err, rows, fields) => {
-        if (!err) {
-            res.send(rows);
-        } else {
-            console.log("Error: " + JSON.stringify(err, undefined, 2));
-        }
-    })
-})
-*/
