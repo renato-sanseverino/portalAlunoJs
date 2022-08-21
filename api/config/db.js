@@ -1,7 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
 
 
-// dados da conexão com BD serverless
 const host     = 'localhost'
 const username = 'root'
 const password = 'p@ssw0rd'
