@@ -10,4 +10,4 @@ Para criar o banco de dados execute o script contido em   /api/database/create.s
 Opcionalmente criar o banco através do comando  PRISMA DB PUSH
 
 
-NPM RUN DEV para compilar e iniciar o devServer
+NPM RUN DEV para compilar e iniciar o Express  ( frontend via static do Express , pasta '../dist' )
