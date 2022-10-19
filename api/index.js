@@ -6,7 +6,7 @@ const { nextApi, nextRouter } = require('express-next-api');
 const port = 3000;
 const app = express();
 
-app.use("/", express.static('../dist'));  // necessário efetuar o build do frontend
+app.use("/", express.static('../dist'));  // necessário efetuar o build do frontend   Ex.: NPM RUN BUILD
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
@@ -14,6 +14,13 @@ app.use(express.urlencoded({ extended: true}));
 
 // createRouter(app, { directory: apiDirectory, additionalMethods: null } )
 app.use(nextApi({ base: '/api/routes', directory: 'routes', options: {caseSensitive: false} }))
+
+
+// Redireciona para o react-router rotas não encontradas no Express
+// TODO: redirecionar para a raiz de arquivos estáticos
+app.get('*', (req, res) => {
+    res.sendFile('index.html', { root: '../dist' })
+})
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));

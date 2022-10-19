@@ -49,11 +49,20 @@ export default function TeacherForm({id, parentRef}) {
 	}
 
 	const onChange = (e) => {
-		setProfessor({
-			...professor,
-			[e.target.name]: e.target.value,
-		});
-	};
+		if (e.target.type === 'file') {
+			const file = e.target.files[0];
+			// Reads the file using the FileReader API
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				const fileData = reader.result.split(';base64,');
+				let formato = fileData[0].replace('data:', '') + ';base64'
+				setProfessor({...professor, 'foto': fileData[1], 'formatoImagem': formato, })
+			}
+			reader.readAsDataURL(file);
+		}
+
+		setProfessor({...professor, [e.target.name]: e.target.value, })
+	}
 
 	useEffect(() => {
 		const getProfessor = async (id) => {
@@ -98,14 +107,9 @@ export default function TeacherForm({id, parentRef}) {
 					<label htmlFor="foto" className="block text-gray-700 text-sm font-bold md-2">
 						Foto
 					</label>
-					<div className="bg-gray-400 flex flex-row">
-						<textarea
-							name="foto"
-							value={professor.foto}
-							className="shadow appearance  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-							onChange={onChange} >
-						</textarea>
-						<img src={"data:" + professor.formatoImagem + ", " + professor.foto} alt={professor.nome}></img>
+					<div className="bg-gray-400 flex flex-col w-48">
+						<input type="file" name="foto" accept=".gif,.jpg,.jpeg,.png" onChange={onChange} />
+						<img className="w-full" src={"data:" + professor.formatoImagem + ", " + professor.foto} alt={professor.nome}></img>
 					</div>
 				</div>
 				<input type="hidden" name="formatoImagem" value={professor.formatoImagem} onChange={onChange} />
