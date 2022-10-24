@@ -6,7 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import toast, { Toaster } from "react-hot-toast";
-import { notification } from '../config/defaults'
+import { notification } from '../utils/defaults'
 import TeacherForm from './TeacherForm';
 import ClickableField from './ClickableField';
 import ConfirmationDialog from './ConfirmationDialog';

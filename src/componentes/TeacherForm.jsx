@@ -3,7 +3,7 @@ import { Dialog } from '@mui/material'
 import Draggable from 'react-draggable'
 import { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { notification } from '../config/defaults'
+import { notification } from '../utils/defaults'
 
 
 export default function TeacherForm({id, parentRef}) {
