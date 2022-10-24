@@ -17,7 +17,7 @@ app.use(nextApi({ base: '/api/routes', directory: 'routes', options: {caseSensit
 
 
 // Redireciona para o react-router rotas não encontradas no Express
-// TODO: redirecionar para a raiz de arquivos estáticos
+// No react-router ( frontend ) redirecionar rotas inexistentes para a raiz
 app.get('*', (req, res) => {
     res.sendFile('index.html', { root: '../dist' })
 })
