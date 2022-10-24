@@ -71,8 +71,8 @@ export default function TeacherList() {
 			<Button variant="outlined" startIcon={<DeleteIcon />} onClick={deleteTeacher} >Excluir</Button>
 			<Button variant="outlined" startIcon={<AddCircleIcon />} onClick={insertTeacher} >Novo</Button>
 
-			<div className="w-full h-96 bg-black bg-opacity-80 text-white">{
-				<DataGrid columns={columns} rows={professores} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection
+			<div className="w-full h-96 bg-black bg-opacity-80">{
+				<DataGrid className="text-white" columns={columns} rows={professores} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection
 				onSelectionModelChange={setSelectionModel} selectionModel={selectionModel} />
 			}
 			</div>

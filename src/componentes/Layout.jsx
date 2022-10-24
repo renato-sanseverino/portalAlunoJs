@@ -7,7 +7,7 @@ export const Layout = ({ children }) => {
 			<Navbar />
 			<div id="panel"></div>
 
-			<div className="w-4/5 h-full mx-5 mt-28">{children}</div>
+			<div className="w-full h-full mt-12">{children}</div>
 		</>
 	)
 }
