@@ -2,9 +2,9 @@ const { PrismaClient } = require('@prisma/client');
 
 
 const host     = 'localhost'
+const port     = 3306
 const username = 'root'
 const password = 'p@ssw0rd'
-const port     = 3306
 const database = 'portal_aluno'
 const ssl      = false
 const setSSL   = 'sslaccept=strict&sslmode=require'
