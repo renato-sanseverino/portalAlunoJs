@@ -10,6 +10,10 @@ import { notification } from '../utils/defaults'
 // Bug ao fazer o upload de foto encontrado:
 // PayloadTooLargeError: request entity too large
 
+// Para fazer o upload para o MySQL é necessário aumentar o tamanho do packet
+// SET GLOBAL max_allowed_packet = 850741824
+
+
 export default function TeacherForm({id, parentRef}) {
 	const [open, setOpen] = useState(true);
 
