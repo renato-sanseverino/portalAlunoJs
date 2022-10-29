@@ -6,6 +6,10 @@ import toast, { Toaster } from 'react-hot-toast'
 import { notification } from '../utils/defaults'
 
 
+
+// Bug ao fazer o upload de foto encontrado:
+// PayloadTooLargeError: request entity too large
+
 export default function TeacherForm({id, parentRef}) {
 	const [open, setOpen] = useState(true);
 
