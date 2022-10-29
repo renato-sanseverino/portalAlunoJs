@@ -13,6 +13,7 @@ import { notification } from '../utils/defaults'
 // Para fazer o upload para o MySQL é necessário aumentar o tamanho do packet
 // SET GLOBAL max_allowed_packet = 850741824
 
+// Alterar no Express o limite
 
 export default function TeacherForm({id, parentRef}) {
 	const [open, setOpen] = useState(true);
