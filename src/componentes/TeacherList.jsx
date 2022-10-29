@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { notification } from '../utils/defaults'
 import TeacherForm from './TeacherForm';
 import ClickableField from './ClickableField';
+import PictureField from './PirctureField';
 import ConfirmationDialog from './ConfirmationDialog';
 
 
@@ -29,7 +30,8 @@ export default function TeacherList() {
 		{ field: 'nome', headerName: 'Nome', width: 250, renderCell: (params) => 
 			<ClickableField rowId={params.row.id} label={params.row.nome} parentRef={{ getProfessores }}></ClickableField> },
 		{ field: 'email', headerName: 'E-mail', width: 250 },
-		{ field: 'foto', headerName: 'Foto', width: 250 }
+		{ field: 'foto', headerName: 'Foto', width: 250, renderCell: (params) =>
+			<PictureField imgData={params.row.foto} imgFormat={params.row.formatoImagem} caption={params.row.nome}></PictureField> },
 	]
 
 	function insertTeacher() {
@@ -72,7 +74,7 @@ export default function TeacherList() {
 			<Button variant="outlined" startIcon={<AddCircleIcon />} onClick={insertTeacher} >Novo</Button>
 
 			<div className="w-full h-96 bg-black bg-opacity-80">{
-				<DataGrid className="text-white" columns={columns} rows={professores} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection
+				<DataGrid sx={{ color: 'white' }} rowHeight={100} columns={columns} rows={professores} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection
 				onSelectionModelChange={setSelectionModel} selectionModel={selectionModel} />
 			}
 			</div>
