@@ -1,17 +1,18 @@
 const { PrismaClient } = require('@prisma/client');
 
 
-// dados da conexão com o banco de dados serverless
-const host     = 'ofidgnvaqxpcrcffkmwk.db.us-east-1.nhost.run'
-const port     = 5432
-const username = 'postgres'
-const password = 'P@ssw0rd1234'
-const database = 'ofidgnvaqxpcrcffkmwk'
+// dados da conexão com o BD
+const host     = 'localhost'
+const port     = 3306
+const username = 'root'
+const password = 'p@ssw0rd'
+const database = 'portal_aluno'
 const ssl      = false
 const setSSL   = 'sslaccept=strict&sslmode=require'
 
-// DATABASE_URL="postgres://postgres:P@ssw0rd1234@ofidgnvaqxpcrcffkmwk.db.us-east-1.nhost.run:5432/ofidgnvaqxpcrcffkmwk"
-let url = `postgres://${username}:${password}@${host}:${port}/${database}`;
+
+// DATABASE_URL="mysql://root:p@ssw0rd@localhost:3306/portal_aluno"
+let url = `mysql://${username}:${password}@${host}:${port}/${database}`;
 if (ssl) {
     url = url + `?${setSSL}`;
 }
